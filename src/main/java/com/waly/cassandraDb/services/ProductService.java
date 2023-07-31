@@ -22,7 +22,12 @@ public class ProductService {
     }
 
     public List<ProductDTO> ProductsByDepartment(String department) {
-        List<Product> list = repository.findByDepartment(department);
+        List<Product> list;
+        if(department.equals("")){
+            list = repository.findAll();
+        }else {
+            list = repository.findByDepartment(department);
+        }
         return list.stream().map(ProductDTO::new).toList();
     }
 }
