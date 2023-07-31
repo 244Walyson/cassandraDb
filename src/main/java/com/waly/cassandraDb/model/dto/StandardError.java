@@ -21,7 +21,7 @@ public class StandardError {
     }
 
     public StandardError() {
-        
+
     }
 
     public Instant getTimestamp() {

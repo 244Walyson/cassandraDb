@@ -25,4 +25,12 @@ public class DepartmentService {
         Department dept = repository.findById(id).orElseThrow(()->new ResourceNotFoundException("id not found"));
         return new DepartmentDTO(dept);
     }
+
+    public DepartmentDTO insert(DepartmentDTO dto) {
+        Department dept = new Department();
+        dept.setName(dto.getName());
+        dept.setId(UUID.randomUUID());
+        repository.save(dept);
+        return new DepartmentDTO(dept);
+    }
 }
